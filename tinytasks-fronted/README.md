@@ -1,52 +1,54 @@
-# TinyTasks Frontend
+# TinyTasks 
 
-Simple task manager frontend built with vanilla JavaScript and CSS.
+Complete task management application with Spring Boot backend and vanilla JavaScript frontend.
+
+## Project Structure
+
+    tinytasks/
+    ├── tinytasks-backend/     (Spring Boot API)
+    └── tinytasks-frontend/    (Vanilla JS UI)
 
 ## Technologies
 
-HTML5 | CSS3 | JavaScript ES6 | Fetch API
+**Backend:** Java 17 | Spring Boot 3.5.6 | Maven
+**Frontend:** HTML5 | CSS3 | JavaScript ES6 | Fetch API
 
-## Structure
+## Quick Start
 
-    tinytasks-frontend/
-    ├── index.html
-    ├── main.js
-    └── service/
-        └── api.js
+### Backend
+
+    cd tinytasks-backend
+    mvn spring-boot:run
+
+Runs on: `http://localhost:8080`
+
+### Frontend
+
+Open `tinytasks-frontend/index.html` with Live Server
+
+## API Endpoints
+
+    GET    /api/tareas       - List all tasks
+    POST   /api/tareas       - Create task
+    PUT    /api/tareas/{id}  - Update task
+    DELETE /api/tareas/{id}  - Delete task
 
 ## Features
 
-- Add new tasks
+- Create, read, update, delete tasks
 - Mark tasks as done/undone
-- Delete tasks
-- Clean and modern UI
-- Connects to Spring Boot backend
+- Clean modern UI
+- CORS configured
+- In-memory storage
 
-## Setup
+## Data Model
 
-1. Start the backend API on `http://localhost:8080`
-
-2. Open `index.html` with Live Server or any local server
-
-## API Configuration
-
-Backend URL in `main.js`:
-
-    const API_URL = "http://localhost:8080/api/tareas";
-
-## Usage
-
-- Type task title and click "Agregar"
-- Click "Hecho" to mark as complete
-- Click ❌ to delete task
-
-## API Methods (api.js)
-
-- `get(url)` - Fetch all tasks
-- `post(url, body)` - Create task
-- `update(url, body)` - Update task status
-- `deletes(url)` - Delete task
+    {
+        "id": Long,
+        "title": String,
+        "done": boolean
+    }
 
 ---
 
-Built with vanilla JavaScript
+Built with Spring Boot and Vanilla JavaScript
